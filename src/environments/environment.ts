@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlPeliculas: 'https://my.api.mockaroo.com/peliculas.json?key=c7f90510'
+  urlPeliculas: 'https://my.api.mockaroo.com/paises.json?key=c7f90510'
 };
 
 export const firebaseConfig = {

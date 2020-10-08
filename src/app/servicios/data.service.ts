@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import * as firebase from "firebase/app";
+import { Pais } from '../clases/pais';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,23 @@ export class DataService {
     return lista;
   }
 
+  getAllPaises() {
+    var lista = Array<any>();
+    firebase.firestore().collection("paises").get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+          let docum = doc.data();
+          let pais = new Pais();
+          pais.nombre = docum.nombre;
+          pais.poblacion = docum.poblacion;
+          pais.bandera = docum.bandera;
+          pais.uid = doc.id;
+          lista.push(pais);
+      });
+    })
+    return lista;
+  }
+
   savePelicua(pelicula) {
     return this.db.collection("peliculas").add({
       id: pelicula.id,
@@ -55,7 +73,17 @@ export class DataService {
       apellido: actor.apellido,
       sexo: actor.sexo,
       fecha_de_nacimiento: actor.fecha_de_nacimiento,
+      nacionalidad: actor.nacionalidad,
       foto: actor.foto,
+      activo: 1
+    });
+  }
+
+  savePais(pais) {
+    return this.db.collection("paises").add({
+      nombre: pais.nombre,
+      poblacion: pais.poblacion,
+      bandera: pais.bandera,
       activo: 1
     });
   }

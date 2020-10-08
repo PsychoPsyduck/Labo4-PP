@@ -1,0 +1,87 @@
+<div>
+    <h1>Pelicula - Alta</h1>
+</div>
+
+<div class="row">
+    <div class="col-6 p-5">
+        <h3>Alta de Actor</h3>
+        <hr>
+        <form [formGroup]="form" (ngSubmit)="guardar()">
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Nombre</label>
+                <div class="col">
+                    <input formControlName="nombre" id="nombre" class="form-control" type="text"> 
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert-danger">
+                        <div *ngIf="nombre.errors.required">
+                            Nombre es requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Apellido</label>
+                <div class="col">
+                    <input formControlName="apellido" id="apellido" class="form-control" type="text"> 
+                    <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="alert-danger">
+                        <div *ngIf="apellido.errors.required">
+                            Apellido es requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Sexo</label>
+                <div class="col">
+                    <select class="form-control" name="sexo" formControlName="sexo" >
+                        <option value="m">M</option>
+                        <option value="f">F</option>
+                    </select>
+                    <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="alert-danger">
+                        <div *ngIf="sexo.errors.required">
+                            Sexo es requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Fecha de Nacimiento</label>
+                <div class="col">
+                    <input formControlName="fecha_de_nacimiento" name="fecha" class="form-control" type="date" placeholder="Fecha de Nacimiento" >
+                    <div *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)" class="alert-danger">
+                        <div *ngIf="fecha.errors.required">
+                            Fecha es requerida
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Nacionalidad</label>
+                <div class="col">
+                    <input formControlName="nacionalidad" name="nacionalidad" class="form-control" type="text" placeholder="nacionalidad" readonly>
+                    
+                    
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4 col-form-label">
+                    <div *ngIf="errorMsj" class="alert-danger">
+                        <div>
+                            {{errorMsj}}
+                        </div>
+                    </div>
+                    <div *ngIf="confirmMsj" class="alert-success">
+                        <div>
+                            {{confirmMsj}}
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <button class="btn btn-outline-dark" type="submit">Guardar</button>
+            
+        </form>
+    </div>
+    <div class="col-5 p-5">
+        <app-tabla-paises (paisSeleccionado)="paisSeleccionado($event)"></app-tabla-paises>
+    </div>
+</div>

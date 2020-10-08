@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CabeceraComponent } from './componentes/cabecera/cabecera.component';
 
@@ -23,18 +23,23 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage'
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
+import { AltaActorComponent } from './componentes/alta-actor/alta-actor.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BienvenidoComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    TablaPaisesComponent,
+    AltaActorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig), 
     AngularFireAuthModule,

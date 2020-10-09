@@ -32,6 +32,8 @@ import { DetalleActprComponent } from './componentes/detalle-actpr/detalle-actpr
 import { MoidficarActorComponent } from './componentes/moidficar-actor/moidficar-actor.component';
 import { PeliculasAltaComponent } from './componentes/peliculas-alta/peliculas-alta.component';
 import { ActorTablaComponent } from './componentes/actor-tabla/actor-tabla.component';
+import { TablaPeliculaComponent } from './componentes/tabla-pelicula/tabla-pelicula.component';
+import { ActorPeliculaComponent } from './componentes/actor-pelicula/actor-pelicula.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { ActorTablaComponent } from './componentes/actor-tabla/actor-tabla.compo
     DetalleActprComponent,
     MoidficarActorComponent,
     PeliculasAltaComponent,
-    ActorTablaComponent
+    ActorTablaComponent,
+    TablaPeliculaComponent,
+    ActorPeliculaComponent
   ],
   imports: [
     BrowserModule,

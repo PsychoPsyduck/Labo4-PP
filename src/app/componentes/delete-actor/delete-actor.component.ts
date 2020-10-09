@@ -18,7 +18,12 @@ export class DeleteActorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  borrarActor(actor) {
-    this.dataService.deleteActor(actor)
+  borrarActor() {
+    if(this.dataService.deleteActor(this.actor)) {
+      console.log("bien")
+    } else {
+      console.log("mal")
+    }
+    
   }
 }

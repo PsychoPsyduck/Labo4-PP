@@ -30,6 +30,8 @@ import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.compo
 import { DeleteActorComponent } from './componentes/delete-actor/delete-actor.component';
 import { DetalleActprComponent } from './componentes/detalle-actpr/detalle-actpr.component';
 import { MoidficarActorComponent } from './componentes/moidficar-actor/moidficar-actor.component';
+import { PeliculasAltaComponent } from './componentes/peliculas-alta/peliculas-alta.component';
+import { ActorTablaComponent } from './componentes/actor-tabla/actor-tabla.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { MoidficarActorComponent } from './componentes/moidficar-actor/moidficar
     TablaActorComponent,
     DeleteActorComponent,
     DetalleActprComponent,
-    MoidficarActorComponent
+    MoidficarActorComponent,
+    PeliculasAltaComponent,
+    ActorTablaComponent
   ],
   imports: [
     BrowserModule,

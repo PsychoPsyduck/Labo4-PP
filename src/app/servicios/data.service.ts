@@ -66,6 +66,7 @@ export class DataService {
   // }
 
   savePelicua(pelicula) {
+    console.log(pelicula)
     return this.db.collection("peliculas").add({
       id: pelicula.id,
       nombre: pelicula.nombre,
@@ -73,6 +74,7 @@ export class DataService {
       fecha_estreno: pelicula.fecha_estreno,
       cantidad_publico: pelicula.cantidad_publico,
       foto: pelicula.foto,
+      actor: pelicula.actor.id,
       activa: 1
     });
   }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Actor } from 'src/app/clases/actor';
+import { DataService } from 'src/app/servicios/data.service';
 
 @Component({
   selector: 'app-detalle-actpr',
@@ -12,7 +13,7 @@ export class DetalleActprComponent implements OnInit {
   @Input() borrado: number;
   @Output() eventoBorrarPelicula = new EventEmitter<number>();
   
-  constructor() { }
+  constructor(private dataService: DataService ) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +21,14 @@ export class DetalleActprComponent implements OnInit {
   borrarPelicula(pelicula) {
     this.eventoBorrarPelicula.emit(pelicula);
     this.actor = null; 
+  }
+
+  borrarActor() {
+    if(this.dataService.deleteActor(this.actor)) {
+      console.log("bien")
+    } else {
+      console.log("mal")
+    }
+    
   }
 }

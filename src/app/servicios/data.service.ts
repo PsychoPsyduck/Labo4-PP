@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from "firebase/app";
 import { Actor } from '../clases/actor';
 import { Pais } from '../clases/pais';
+import { Pelicula } from '../clases/pelicula';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class DataService {
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
           let docum = doc.data();
-          // let pelicula = new Pelicula(docum.id, docum.nombre, docum.tipo, docum.fecha_estreno, docum.cantidad_publico, docum.foto);
-          // lista.push(pelicula);
+          let pelicula = new Pelicula(docum.id, docum.nombre, docum.tipo, docum.fecha_estreno, docum.cantidad_publico, docum.foto);
+          lista.push(pelicula);
       });
     })
     return lista;

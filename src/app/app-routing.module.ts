@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 
 
 const routes: Routes = [
   {path: '', component: BienvenidoComponent},
   {path: 'bienvenido', component: BienvenidoComponent},
-  // {path: 'error', component: ErrorComponent},
+  {path: 'actor/listado', component: ActorListadoComponent},
 ];
 
 @NgModule({

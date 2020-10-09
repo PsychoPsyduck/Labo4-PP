@@ -5,5 +5,6 @@ export class Actor {
     sexo: string;
     fecha_de_nacimiento: string;
     nacionalidad: string;
-    foto= "";
+    uid: string;
+    foto= "http://dummyimage.com/217x129.bmp/dddddd/000000";
 }

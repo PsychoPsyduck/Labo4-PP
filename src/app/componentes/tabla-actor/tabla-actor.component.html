@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-bordered tabla-dark">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Sexo</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Nacionalidad</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let pelis of listadoEntidades; let i = index" (click)="seleccionarActor(pelis, i)">
+                <td>{{pelis.nombre}} </td>
+                <td>{{pelis.apellido}} </td>
+                <td>{{pelis.sexo}} </td>
+                <td>{{pelis.fecha_de_nacimiento}} </td>
+                <td>{{pelis.nacionalidad}} </td>
+                <!-- <td>{{pelis.foto}} </td> -->
+                <td class="tdFoto"> <img [src]="pelis.foto" alt=""></td>
+            </tr>     
+        </tbody>
+    </table>
+</div>

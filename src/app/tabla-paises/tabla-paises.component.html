@@ -3,16 +3,15 @@
         <thead>
             <tr>
             <th>Nombre</th>
-            <th>Poblacion</th>
             <th>Bandera</th>
             </tr>
         </thead>
         <tbody >
             <tr *ngFor="let pelis of listadoEntidades; let i = index" (click)="seleccionarPais(pelis, i)">
-                <td>{{pelis.nombre}} </td>
-                <td>{{pelis.poblacion}} </td>
+                <td>{{pelis.name}} </td>
+                <!-- <td>{{pelis.poblacion}} </td> -->
                 <!-- <td>{{pelis.foto}} </td> -->
-                <td class="tdFoto"> <img [src]="pelis.bandera" alt=""></td>
+                <td class="tdFoto"> <img [src]="pelis.flag" alt=""></td>
             </tr>     
         </tbody>
     </table>

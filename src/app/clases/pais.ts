@@ -1,6 +1,5 @@
 export class Pais {
-    nombre :string;
-    poblacion :number;
-    bandera : string;
+    name :string;
+    flag : string;
     uid: string;
 }

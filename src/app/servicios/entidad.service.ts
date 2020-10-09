@@ -12,7 +12,10 @@ export class EntidadService {
 
   constructor(private http: HttpClient) { }
 
+  // public obtenerEntidades() {
+  //   return this.http.get(this.urlPeliculas);
+  // }
   public obtenerEntidades() {
-    return this.http.get(this.urlPeliculas);
+    return this.http.get("https://restcountries.eu/rest/v2");
   }
 }

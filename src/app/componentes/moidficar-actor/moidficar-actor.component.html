@@ -1,12 +1,10 @@
-<div>
-    <h1>Actor - Alta</h1>
-</div>
-
-<div class="row">
-    <div class="col-6 p-5">
-        <h3>Alta de Actor</h3>
-        <hr>
-        <form [formGroup]="form" (ngSubmit)="guardar()">
+<div class="card border-dark" *ngIf="actor">
+    <h3>Modificar</h3>
+    <div class="colum no-gutters">
+        <div class="col-md-12 divImg" >
+            <img [src]="actor.foto" class="img-thumbnail imagenDeMenu" alt="Avatar">
+        </div>
+        <form [formGroup]="form" (ngSubmit)="guardar()" >
 
             <div class="form-group row">
                 <label class="col-4 col-form-label">Nombre</label>
@@ -80,8 +78,5 @@
             <button class="btn btn-outline-dark" type="submit">Guardar</button>
             
         </form>
-    </div>
-    <div class="col-5 p-5">
-        <app-tabla-paises (paisSeleccionado)="paisSeleccionado($event)"></app-tabla-paises>
     </div>
 </div>

@@ -1,0 +1,20 @@
+<h1>Actor - Listado</h1>
+
+<div class="row">
+    <div class="col-md-9">
+        <app-tabla-actor (actorSeleccionado)="tomarActorParaDetalles($event)"></app-tabla-actor>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <app-delete-actor [actor]="actor"></app-delete-actor>
+    </div>
+    <div class="col-md-4">
+        <app-detalle-actpr [actor]="actor"></app-detalle-actpr>
+    </div>
+    <div class="col-md-4">
+        <app-moidficar-actor [actor]="actor"></app-moidficar-actor>
+    </div>
+</div>

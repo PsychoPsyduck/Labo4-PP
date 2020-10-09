@@ -25,6 +25,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage'
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { TablaPaisesComponent } from './tabla-paises/tabla-paises.component';
 import { AltaActorComponent } from './componentes/alta-actor/alta-actor.component';
+import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
+import { TablaActorComponent } from './componentes/tabla-actor/tabla-actor.component';
+import { DeleteActorComponent } from './componentes/delete-actor/delete-actor.component';
+import { DetalleActprComponent } from './componentes/detalle-actpr/detalle-actpr.component';
+import { MoidficarActorComponent } from './componentes/moidficar-actor/moidficar-actor.component';
 
 
 @NgModule({
@@ -33,7 +38,12 @@ import { AltaActorComponent } from './componentes/alta-actor/alta-actor.componen
     BienvenidoComponent,
     CabeceraComponent,
     TablaPaisesComponent,
-    AltaActorComponent
+    AltaActorComponent,
+    ActorListadoComponent,
+    TablaActorComponent,
+    DeleteActorComponent,
+    DetalleActprComponent,
+    MoidficarActorComponent
   ],
   imports: [
     BrowserModule,

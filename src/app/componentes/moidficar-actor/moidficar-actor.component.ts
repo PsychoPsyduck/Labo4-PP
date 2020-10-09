@@ -1,16 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Actor } from 'src/app/clases/actor';
 import { Pais } from 'src/app/clases/pais';
 import { DataService } from 'src/app/servicios/data.service';
 
 @Component({
-  selector: 'app-alta-actor',
-  templateUrl: './alta-actor.component.html',
-  styleUrls: ['./alta-actor.component.css']
+  selector: 'app-moidficar-actor',
+  templateUrl: './moidficar-actor.component.html',
+  styleUrls: ['./moidficar-actor.component.css']
 })
-export class AltaActorComponent implements OnInit {
-
+export class MoidficarActorComponent implements OnInit {
+  
   form: FormGroup;
   pais: Pais;
   hola: string;
@@ -19,6 +19,10 @@ export class AltaActorComponent implements OnInit {
   errorMsj: string;
   listadoEntidades: Array<Actor>;
 
+  @Input() actor: Actor;
+  @Input() borrado: number;
+  @Output() eventoBorrarPelicula = new EventEmitter<number>();
+  
   constructor(private fb: FormBuilder, private dataService: DataService)
   { this.lastID = 0}
 
@@ -31,23 +35,26 @@ export class AltaActorComponent implements OnInit {
       nacionalidad: ['', Validators.required]
     });
 
-    this.listadoEntidades = this.dataService.getAllActores();
+    
+    // this.listadoEntidades = this.dataService.getAllActores();
   }
 
   get nombre() { return this.form.get('nombre'); }
   get apellido() { return this.form.get('apellido'); }
   get sexo() { return this.form.get('sexo'); }
   get fecha() { return this.form.get('fecha_de_nacimiento'); }
-  get nacionalidad() { return this.form.get('nacionalidad'); }
+  // get nacionalidad() { return this.form.get('nacionalidad'); }
 
-
-  paisSeleccionado(pais: Pais) {
-    this.form.patchValue({
-      nacionalidad: pais.name
+  cargarForm() {
+    this.form.setValue({
+      nombre: this.actor.nombre,
+      apellido: this.actor.apellido,
+      sexo: this.actor.sexo,
+      fecha_de_nacimiento: this.actor.fecha_de_nacimiento,
+      nacionalidad: this.actor.nacionalidad
     });
-
-    this.pais = pais;
   }
+
 
   guardar() {
     if(this.listadoEntidades) {
@@ -58,21 +65,19 @@ export class AltaActorComponent implements OnInit {
       });
     }
     
-    const { nombre, apellido, sexo, fecha_de_nacimiento, nacionalidad } = this.form.value;
+    const { nombre, apellido, sexo, fecha_de_nacimiento} = this.form.value;
     
-    if(nombre && apellido && sexo && fecha_de_nacimiento && nacionalidad) {
+    if(nombre && apellido && sexo && fecha_de_nacimiento) {
       this.lastID++;
 
-      var newActor = new Actor();
+      var newActor = this.actor;
 
-      newActor.id = this.lastID;
+      newActor.id = this.actor.id;
       newActor.nombre = nombre;
       newActor.apellido = apellido;
       newActor.sexo = sexo;
       newActor.fecha_de_nacimiento = fecha_de_nacimiento;
-      newActor.nacionalidad = nacionalidad;
-
-      if(this.dataService.saveActor(newActor)) {
+      if(this.dataService.updateActor(newActor)) {
         this.errorMsj = null;
         this.confirmMsj = "Alta exitosa."
       } else {
@@ -82,5 +87,14 @@ export class AltaActorComponent implements OnInit {
       this.errorMsj = "Error. Revise los datos."
     }
   }
- 
+
+
+
+
+
+
+  borrarPelicula(pelicula) {
+    this.eventoBorrarPelicula.emit(pelicula);
+    this.actor = null; 
+  }
 }
